@@ -1,5 +1,5 @@
 # SQL_Projects
-
+FILE_1
 1) Import this data set in SQL work banch
 2) Write the SQL query to answer the following question: 
 
@@ -16,9 +16,10 @@ all employees. For each group analysis the attrition rate in each Job Role. Find
 has the highest attrition rate gap across the group.
 
 
+FILE_2
+ 1) Import the dataset in a SQL database using SQL workbench and write down SQL Query to Create a group based on gender column and provide below statistics
+ 
 Questions I've solved: Customer-Churn
-Import the dataset in a SQL database using SQL workbench and write down SQL Query to Create a group based on gender column and provide below statistics:
-
 1.	Average Monthly charges for all groups.
 2.	Max Monthly and Total charges groupwise.
 3.	Min Monthly and Total charges groupwise.
