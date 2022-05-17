@@ -1,9 +1,9 @@
 # SQL_Projects
 
-Task: 
 1) Import this data set in SQL work banch
 2) Write the SQL query to answer the following question: 
 
+Questions I've solved: 
 1. What proportion of our staff are leaving?
 2. What is the average age of the employees in each department?
 3. Which education field has the highest attrition rate for the employees with less than 5 years of 
