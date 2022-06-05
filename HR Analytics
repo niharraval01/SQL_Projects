@@ -1,12 +1,20 @@
 # A1 What proportion of our staff are leaving?
 # Here in Attrition value (1) = Left the organization 
 
- use assignment;
-select* from `hr analytics`
-where Attrition = 1;
+use assignment;
+select * from `hr analytics`;
+
+
+
+
+SELECT (SUM(CONVERT(Attrition,DECIMAL(10,5))) / 
+COUNT(CONVERT(EmployeeNumber, DECIMAL(10,5)))) * 100 AS PROPORTION
+FROM `hr analytics`;
+
+
+
 
 # A2 What is the average age of the employees in each department?
-
 select Department , round(avg(Age),2) as Avg_Age from `hr analytics`
 group by Department;
 
@@ -36,12 +44,12 @@ FROM `hr analytics`;
 
 #For each group analysis the attrition rate in each Job Role.
 select count(Attrition) as `Attrition rate`, JobRole from `hr analytics`
-where MonthlyIncome > 6502.93
+where MonthlyIncome > (SELECT round(Avg(MonthlyIncome),2) as Average_salary from `hr analytics`) 
 group by JobRole;
 
 # Job role which has the highest attrition rate gap across the group.
 select count(Attrition) as `Attrition rate`, JobRole from `hr analytics`
-where MonthlyIncome > 6502.93
+where MonthlyIncome > (SELECT round(Avg(MonthlyIncome),2) as Average_salary from `hr analytics`)
 group by JobRole
 order by `Attrition rate` desc
 limit 1;
@@ -56,12 +64,15 @@ FROM `hr analytics`;
 
 #For each group analysis the attrition rate in each Job Role.
 select count(Attrition) as `Attrition rate`, JobRole from `hr analytics`
-where MonthlyIncome < 6502.93
+where MonthlyIncome < (SELECT round(Avg(MonthlyIncome),2) as Average_salary from `hr analytics`)
 group by JobRole;
 
 # Job role which has the highest attrition rate gap across the group.
 select count(Attrition) as `Attrition rate`, JobRole from `hr analytics`
-where MonthlyIncome < 6502.93
+where MonthlyIncome < (SELECT round(Avg(MonthlyIncome),2) as Average_salary from `hr analytics`)
 group by JobRole
 order by `Attrition rate` desc
 limit 1;
+
+
+
